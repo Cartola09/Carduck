@@ -1245,14 +1245,21 @@ SMODS.Joker {
         local target_hand = card.ability.extra.target_hand
         local target_enh = card.ability.extra.target_enhancement
 
-        local target_key = (type(target_enh) == 'table') and target_enh.key or target_enh
+        local target_key = type(target_enh) == 'table' and target_enh.key or target_enh
 
         local hand_name = localize(target_hand, 'poker_hands')
 
-        local enh_name = "Desconhecido"
+        local enh_name = "ERROR"
         if G.P_CENTERS[target_key] then
-            enh_name = localize(target_key, 'Other')
+            enh_name = G.P_CENTERS[target_key].name
             
+            local loc_obj = localize{type = 'name', set = 'Other', key = target_key}
+            if type(loc_obj) == 'string' then
+                enh_name = loc_obj
+            elseif type(loc_obj) == 'table' then
+                enh_name = loc_obj[1] or enh_name
+            end
+
             info_queue[#info_queue+1] = G.P_CENTERS[target_key]
         end
 
@@ -1262,7 +1269,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
             local enh_pool = {'m_bonus', 'm_mult', 'm_wild', 'm_glass', 'm_steel', 'm_stone', 'm_gold', 'm_lucky'}
-            local hand_pool = {'Pair', 'Flush', 'Full House', 'Three of a Kind', 'Straight'}
+            local hand_pool = {'Pair', 'Flush', 'Full House', 'Three of a Kind', 'Straight', 'Two Pair'}
 
             card.ability.extra.target_enhancement = pseudorandom_element(enh_pool, pseudoseed('hotline_enh'))
             card.ability.extra.target_hand = pseudorandom_element(hand_pool, pseudoseed('hotline_hand'))
