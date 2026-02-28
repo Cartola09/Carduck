@@ -226,6 +226,17 @@ return {
                     }
                 },
             },
+            j_cd_hotline = {
+                name = "Hotline",
+                text = {
+                    {
+                        "Se a mão jogada for {C:attention}#1#{} e conter uma carta de(a) {C:attention}#2#{},",
+                        "Cria uma carta {C:spectral}Espectral{}",
+                        "{C:inactive}(Deve ter espaço){}",
+                        "{C:inactive}(Mão e Carta mudam a cada blind){}",
+                    }
+                },
+            },
         },
         Back = {
             b_cd_metadeck = {

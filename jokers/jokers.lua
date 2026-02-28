@@ -191,6 +191,13 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "hotline",
+    path = "j_hotline.png",
+    px = 71,
+    py = 95
+})
+
 SMODS.Sound({
     key = "p5critical",
     path = "p5critical.ogg"
@@ -1221,6 +1228,80 @@ SMODS.Joker {
         end
     end
 }
+
+SMODS.Joker {
+    key = "hotline",
+    atlas = "hotline",
+    pos = { x = 0, y = 0 },
+    rarity = 3,
+    cost = 8,
+    unlocked = true,
+    discovered = true,
+    blueprint_compat = false, 
+    eternal_compat = true, 
+    config = { extra = { target_hand = 'High Card', target_enhancement = 'm_bonus' } },
+
+    loc_vars = function(self, info_queue, card)
+        local hand_name = localize(card.ability.extra.target_hand, 'poker_hands')
+        local enh_name = localize{type = 'name', set = 'Other', key = card.ability.extra.target_hand} 
+        if G.P_CENTERS[card.ability.extra.target_enhancement] then
+            enh_name = localize{type = 'name', set = 'Other', key = card.ability.extra.target_enhancement}
+        end
+
+        return { vars = { hand_name, enh_name } }
+    end,
+    
+    calculate = function(self, card, context)
+        if context.setting_blind and not context.blueprint then
+            local hands = {'High Card', 'Pair', 'Two Pair', 'Three of a Kind', 'Straight', 'Flush', 'Full House', 'Four of a Kind'}
+            local enhs = {'m_bonus', 'm_mult', 'm_wild', 'm_glass', 'm_steel', 'm_stone', 'm_gold', 'm_lucky'}
+            
+            card.ability.extra.target_hand = pseudorandom_element(hands, pseudoseed('hotline_h'))
+            card.ability.extra.target_enhancement = pseudorandom_element(enhs, pseudoseed('hotline_e'))
+            
+            return {
+                message = localize('k_reset'),
+                colour = G.C.GREEN
+            }
+        end
+
+        if context.joker_main then
+            if context.scoring_name == card.ability.extra.target_hand then
+                local has_enhancement = false
+                
+                for i = 1, #context.scoring_hand do
+                    if context.scoring_hand[i].config.center.key == card.ability.extra.target_enhancement then
+                        has_enhancement = true
+                        break
+                    end
+                end
+
+                if has_enhancement then
+                    if #G.consumeables.cards < G.consumeables.config.card_limit then
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                local spect = create_card('Spectral', G.consumeables, nil, nil, nil, nil, nil, 'hotline')
+                                spect:add_to_deck()
+                                G.consumeables:emplace(spect)
+                                return true
+                            end
+                        }))
+                        return {
+                            message = localize('k_plus_spectral'),
+                            colour = G.C.SECONDARY_SET.Spectral
+                        }
+                    else
+                        return {
+                            message = localize('k_no_room_ex'),
+                            colour = G.C.UI.TEXT_INACTIVE
+                        }
+                    end
+                end
+            end
+        end
+    end
+}
+
 
 -- (COLOCAR OUTROS CORINGAS ACIMA DESSE BLOCO) codigo p agir com outros coringas q destroem cartas (NÃO MEXER MT)
 local card_dissolve_ref = Card.start_dissolve

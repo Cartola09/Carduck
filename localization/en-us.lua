@@ -227,6 +227,17 @@ return {
                     }
                 },
             },
+            j_cd_hotline = {
+                name = "Hotline",
+                text = {
+                    {
+                        "If played hand is {C:attention}#1#{} and contains a {C:attention}#2# Card{},",
+                        "creates a {C:spectral}Spectral{} Card",
+                        "{C:inactive}(Must have room){}",
+                        "{C:inactive}(Hand and enhancement changes each blind){}",
+                    }
+                },
+            },
         },
         Back = {
             b_cd_metadeck = {
