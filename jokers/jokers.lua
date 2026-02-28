@@ -1242,11 +1242,10 @@ SMODS.Joker {
     config = { extra = { target_hand = 'High Card', target_enhancement = 'm_bonus' } },
 
     loc_vars = function(self, info_queue, card)
+        local target_key = card.ability.extra.target_enhancement
+        if type(target_key) == 'table' then target_key = target_key.key end
+
         local hand_name = localize(card.ability.extra.target_hand, 'poker_hands')
-        
-        local target_key = type(card.ability.extra.target_enhancement) == 'table' 
-                        and card.ability.extra.target_enhancement.key 
-                        or card.ability.extra.target_enhancement
 
         local enh_name = "Unknown"
         if G.P_CENTERS[target_key] then
