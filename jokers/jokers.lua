@@ -1243,11 +1243,18 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         local hand_name = localize(card.ability.extra.target_hand, 'poker_hands')
-        local enhancement_info = G.P_CENTERS[card.ability.extra.target_enhancement]
-        local enh_name = enhancement_info and localize{type = 'name', set = 'Other', key = card.ability.extra.target_enhancement} or "Desconhecido"
+        
+        local target_enh = card.ability.extra.target_enhancement
+        local enh_name = ""
+        
+        if G.P_CENTERS[target_enh] then
+            enh_name = localize{type = 'name', set = 'Other', key = target_enh}
+        else
+            enh_name = "Unknown"
+        end
 
         return { vars = { hand_name, enh_name } }
-    end,
+    end
     
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
