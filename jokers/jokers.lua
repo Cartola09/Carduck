@@ -198,6 +198,13 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "pinkslip",
+    path = "j_pinkslip.png",
+    px = 71,
+    py = 95
+})
+
 SMODS.Sound({
     key = "p5critical",
     path = "p5critical.ogg"
@@ -1317,6 +1324,22 @@ SMODS.Joker {
     end
 }
 
+SMODS.Joker {
+    key = "pinkslip",
+    atlas = "pinkslip",
+    pos = { x = 0, y = 0 },
+    rarity = 2,
+    cost = 6,
+    unlocked = true,
+    discovered = true,
+    blueprint_compat = false, 
+    eternal_compat = true, 
+    
+    loc_vars = function(self, info_queue, card)
+        return { vars = { } }
+    end,
+}
+
 
 -- (COLOCAR OUTROS CORINGAS ACIMA DESSE BLOCO) codigo p agir com outros coringas q destroem cartas (NÃO MEXER MT)
 local card_dissolve_ref = Card.start_dissolve
@@ -1380,3 +1403,18 @@ function Card.start_dissolve(self, dissolve_colours, shelf_live, item_type)
     card_dissolve_ref(self, dissolve_colours, shelf_live, item_type)
 end
 -- Cabou o codigo acima.
+
+-- codigo do pink slip
+local old_get_sell_cost = Card.get_sell_cost
+
+function Card:get_sell_cost()
+    local cost = old_get_sell_cost(self)
+    
+    if G.jokers and #SMODS.find_joker("j_pinkslip") > 0 then
+        if self.ability.set == 'Joker' and self.config.center.key ~= "j_pinkslip" then
+            cost = cost + 3
+        end
+    end
+    
+    return cost
+end

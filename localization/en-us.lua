@@ -238,6 +238,14 @@ return {
                     }
                 },
             },
+            j_cd_pinkslip = {
+                name = "Pink Slip",
+                text = {
+                    {
+                        "Raises your jokers {C:money}Sell Value{} by {C:money}$3{}",
+                    }
+                },
+            },
         },
         Back = {
             b_cd_metadeck = {

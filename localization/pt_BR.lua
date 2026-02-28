@@ -237,6 +237,14 @@ return {
                     }
                 },
             },
+            j_cd_pinkslip = {
+                name = "Nota de demissão",
+                text = {
+                    {
+                        "Aumenta o {C:money}Valor de venda{} dos seus curingas em {C:money}$3{}",
+                    }
+                },
+            },
         },
         Back = {
             b_cd_metadeck = {
