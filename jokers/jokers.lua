@@ -1406,15 +1406,25 @@ end
 
 -- codigo do pink slip
 local old_get_sell_cost = Card.get_sell_cost
-
 function Card:get_sell_cost()
     local cost = old_get_sell_cost(self)
     
-    if G.jokers and #SMODS.find_joker("j_pinkslip") > 0 then
-        if self.ability.set == 'Joker' and self.config.center.key ~= "j_pinkslip" then
-            cost = cost + 3
+    if G.jokers and G.jokers.cards then
+        local pinkslip_exist = false
+        
+        for _, j in ipairs(G.jokers.cards) do
+            if j.config.center.key:find("pinkslip") then
+                pinkslip_exist = true
+                break
+            end
+        end
+
+        if pinkslip_exist and self.ability.set == 'Joker' then
+            if not self.config.center.key:find("pinkslip") then
+                return cost * 2
+            end
         end
     end
-    
+
     return cost
 end
