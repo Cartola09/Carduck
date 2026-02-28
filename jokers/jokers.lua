@@ -1326,18 +1326,41 @@ SMODS.Joker {
 
 SMODS.Joker {
     key = "pinkslip",
-    atlas = "pinkslip",
+    atlas = "pinkslip", 
     pos = { x = 0, y = 0 },
-    rarity = 2,
-    cost = 6,
+    rarity = 1,
+    cost = 4,
     unlocked = true,
     discovered = true,
-    blueprint_compat = false, 
-    eternal_compat = true, 
+    blueprint_compat = true, 
+    eternal_compat = true,
+    config = { extra = { bonus = 2 } },
     
     loc_vars = function(self, info_queue, card)
-        return { vars = { } }
+        return { vars = { card.ability.extra.bonus } }
     end,
+
+    calculate = function(self, card, context)
+        if context.selling_card then
+            if context.target.ability.set == 'Joker' and context.target ~= card then
+                
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        play_sound('coin1')
+                        card:juice_up(0.3, 0.4) 
+                        return true
+                    end
+                }))
+
+                ease_dollars(card.ability.extra.bonus)
+
+                return {
+                    message = '$' .. card.ability.extra.bonus,
+                    colour = G.C.MONEY
+                }
+            end
+        end
+    end
 }
 
 
@@ -1403,28 +1426,3 @@ function Card.start_dissolve(self, dissolve_colours, shelf_live, item_type)
     card_dissolve_ref(self, dissolve_colours, shelf_live, item_type)
 end
 -- Cabou o codigo acima.
-
--- codigo do pink slip
-local old_get_sell_cost = Card.get_sell_cost
-function Card:get_sell_cost()
-    local cost = old_get_sell_cost(self)
-    
-    if G.jokers and G.jokers.cards then
-        local pinkslip_exist = false
-        
-        for _, j in ipairs(G.jokers.cards) do
-            if j.config.center.key:find("pinkslip") then
-                pinkslip_exist = true
-                break
-            end
-        end
-
-        if pinkslip_exist and self.ability.set == 'Joker' then
-            if not self.config.center.key:find("pinkslip") then
-                return cost + 3
-            end
-        end
-    end
-
-    return cost
-end
