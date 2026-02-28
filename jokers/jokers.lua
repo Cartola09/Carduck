@@ -1254,7 +1254,7 @@ SMODS.Joker {
         end
 
         return { vars = { hand_name, enh_name } }
-    end
+    end,
     
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
