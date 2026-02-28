@@ -241,7 +241,7 @@ return {
                 name = "Nota de demissão",
                 text = {
                     {
-                        "Aumenta o {C:money}Valor de venda{} dos seus curingas em {C:money}$3{}",
+                        "Vender curingas dá {C:money}$2{}",
                     }
                 },
             },

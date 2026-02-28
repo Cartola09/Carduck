@@ -1340,24 +1340,26 @@ SMODS.Joker {
         return { vars = { card.ability.extra.bonus } }
     end,
 
-    calculate = function(self, card, context)
+calculate = function(self, card, context)
         if context.selling_card then
             if context.target.ability.set == 'Joker' and context.target ~= card then
                 
                 G.E_MANAGER:add_event(Event({
+                    trigger = 'before',
+                    delay = 0.1,
                     func = function()
+                        card:juice_up(0.3, 0.4)
                         play_sound('coin1')
-                        card:juice_up(0.3, 0.4) 
+                        
+                        ease_dollars(card.ability.extra.bonus)
+                        
+                        card_eval_status_text(card, 'extra', nil, nil, nil, {
+                            message = "$" .. card.ability.extra.bonus,
+                            colour = G.C.MONEY
+                        })
                         return true
                     end
                 }))
-
-                ease_dollars(card.ability.extra.bonus)
-
-                return {
-                    message = '$' .. card.ability.extra.bonus,
-                    colour = G.C.MONEY
-                }
             end
         end
     end

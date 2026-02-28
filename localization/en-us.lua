@@ -242,7 +242,7 @@ return {
                 name = "Pink Slip",
                 text = {
                     {
-                        "Raises your jokers {C:money}Sell Value{} by {C:money}$3{}",
+                        "selling jokers give you {C:money}$2{}",
                     }
                 },
             },
