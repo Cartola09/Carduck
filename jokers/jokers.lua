@@ -1342,7 +1342,7 @@ SMODS.Joker {
 
 calculate = function(self, card, context)
         if context.selling_card then
-            if context.target.ability.set == 'Joker' and context.target ~= card then
+            if context.target.ability.set == 'Joker' and context.card ~= card then
                 
                 G.E_MANAGER:add_event(Event({
                     trigger = 'before',
