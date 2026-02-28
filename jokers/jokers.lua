@@ -1421,7 +1421,7 @@ function Card:get_sell_cost()
 
         if pinkslip_exist and self.ability.set == 'Joker' then
             if not self.config.center.key:find("pinkslip") then
-                return cost * 2
+                return cost + 3
             end
         end
     end
