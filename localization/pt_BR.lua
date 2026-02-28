@@ -227,7 +227,7 @@ return {
                 },
             },
             j_cd_hotline = {
-                name = "Hotline",
+                name = "Linha Direta",
                 text = {
                     {
                         "Se a mão jogada for {C:attention}#1#{} e conter uma carta de(a) {C:attention}#2#{},",

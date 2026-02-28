@@ -1243,10 +1243,8 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         local hand_name = localize(card.ability.extra.target_hand, 'poker_hands')
-        local enh_name = localize{type = 'name', set = 'Other', key = card.ability.extra.target_hand} 
-        if G.P_CENTERS[card.ability.extra.target_enhancement] then
-            enh_name = localize{type = 'name', set = 'Other', key = card.ability.extra.target_enhancement}
-        end
+        local enhancement_info = G.P_CENTERS[card.ability.extra.target_enhancement]
+        local enh_name = enhancement_info and localize{type = 'name', set = 'Other', key = card.ability.extra.target_enhancement} or "Desconhecido"
 
         return { vars = { hand_name, enh_name } }
     end,
