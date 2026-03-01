@@ -1383,9 +1383,9 @@ SMODS.Joker {
         if context.repetition and context.cardarea == G.play then
             if context.other_card.repetition then
                 return {
-                    message = localize("k_cd_uzumaki")
-                    repetitions = card.ability.extra.repetitions
-                    card = card
+                    message = localize("k_cd_uzumaki"),
+                    repetitions = card.ability.extra.repetitions,
+                    card = card,
                 }
         end
     end
