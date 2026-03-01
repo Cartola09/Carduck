@@ -249,7 +249,7 @@ return {
                 name = "Uzumaki",
                 text = {
                     {
-                        "Cartas que {C:attention}reativaram{},",
+                        "Cartas com {C:red}selo vermelho{} que {C:attention}reativaram{},",
                         "reativam {C:attention}novamente{}",
 
                     }

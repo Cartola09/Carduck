@@ -250,7 +250,7 @@ return {
                 name = "Uzumaki",
                 text = {
                     {
-                        "Cards that {C:attention}reactivated{},",
+                        "{C:red}Red seal{} cards that {C:attention}reactivated{},",
                         "reactivate {C:attention}again{}",
 
                     }

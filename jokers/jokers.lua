@@ -1376,13 +1376,13 @@ SMODS.Joker {
     key = "uzumaki",
     atlas = "uzumaki",
     blueprint_compat = true,
-    rarity = 3,
-    cost = 7,
+    rarity = 2,
+    cost = 6,
     pos = { x = 0, y = 0 },
     config = { extra = { repetitions = 1 } },
 calculate = function(self, card, context)
     if context.repetition and context.cardarea == G.play then
-        if context.other_card.repetition then
+        if context.other_card.seal == 'Red' then
             return {
                 message = localize("k_cd_uzumaki"),
                 repetitions = card.ability.extra.repetitions,
