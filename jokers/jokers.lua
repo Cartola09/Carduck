@@ -1374,6 +1374,7 @@ calculate = function(self, card, context)
 
 SMODS.Joker {
     key = "uzumaki",
+    atlas = "uzumaki",
     blueprint_compat = true,
     rarity = 3,
     cost = 7,
@@ -1385,7 +1386,7 @@ SMODS.Joker {
                 return {
                     message = localize("k_cd_uzumaki"),
                     repetitions = card.ability.extra.repetitions,
-                    card = card
+                    card = card,
                 }
             end
         end
