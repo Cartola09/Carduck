@@ -1387,6 +1387,7 @@ SMODS.Joker {
                     repetitions = card.ability.extra.repetitions,
                     card = card
                 }
+            end
         end
     end
 }
