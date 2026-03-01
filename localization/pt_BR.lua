@@ -275,7 +275,7 @@ return {
             dictionary = {
                 k_cd_zero_reversed = "ZERO_REVERSO: SEM_ENERGIA_SUFICIENTE",
                 k_cd_arcana_active = "O Arcano se revela...",
-                k_cd_uzumaki = "再度",
+                k_cd_uzumaki = "Denovo.",
 
             },
         },
