@@ -245,6 +245,16 @@ return {
                     }
                 },
             },
+            j_cd_uzumaki = {
+                name = "Uzumaki",
+                text = {
+                    {
+                        "Cartas que {C:attention}reativaram{},",
+                        "reativam {C:attention}novamente{}",
+
+                    }
+                }
+            },
         },
         Back = {
             b_cd_metadeck = {

@@ -246,6 +246,16 @@ return {
                     }
                 },
             },
+            j_cd_uzumaki = {
+                name = "Uzumaki",
+                text = {
+                    {
+                        "Cards that {C:attention}reactivated{},",
+                        "reactivate {C:attention}again{}",
+
+                    }
+                }
+            },
         },
         Back = {
             b_cd_metadeck = {
