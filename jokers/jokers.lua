@@ -1380,6 +1380,8 @@ SMODS.Joker {
     cost = 6,
     pos = { x = 0, y = 0 },
     config = { extra = { repetitions = 1 } },
+    unlocked = true,
+    discovered = true,
 calculate = function(self, card, context)
     if context.repetition and context.cardarea == G.play then
         if context.other_card.seal == 'Red' then
