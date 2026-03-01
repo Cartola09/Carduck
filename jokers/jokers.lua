@@ -1385,7 +1385,7 @@ SMODS.Joker {
                 return {
                     message = localize("k_cd_uzumaki"),
                     repetitions = card.ability.extra.repetitions,
-                    card = card,
+                    card = card
                 }
         end
     end
