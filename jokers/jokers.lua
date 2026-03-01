@@ -205,6 +205,13 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "uzumaki",
+    path = "j_uzumaki.png",
+    px = 71,
+    py = 95
+})
+
 SMODS.Sound({
     key = "p5critical",
     path = "p5critical.ogg"
@@ -1361,6 +1368,25 @@ calculate = function(self, card, context)
                     end
                 }))
             end
+        end
+    end
+}
+
+SMODS.Joker {
+    key = "uzumaki",
+    blueprint_compat = true,
+    rarity = 3,
+    cost = 7,
+    pos = { x = 0, y = 0 },
+    config = { extra = { repetitions = 1 } },
+    calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.play then
+            if context.other_card.repetition then
+                return {
+                    message = localize("k_cd_uzumaki")
+                    repetitions = card.ability.extra.repetitions
+                    card = card
+                }
         end
     end
 }
