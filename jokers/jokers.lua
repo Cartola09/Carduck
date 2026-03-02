@@ -1426,7 +1426,6 @@ calculate = function(self, card, context)
                 local j = G.jokers.cards[i]
                 
                 if j ~= card then
-                    local j_triggered = false
 
                     if j.ability and j.ability.mult and j.ability.mult ~= 0 then
                         j.ability.mult = math.floor(pseudorandom('jevil_m') * 51)
