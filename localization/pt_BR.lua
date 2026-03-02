@@ -255,6 +255,16 @@ return {
                     }
                 }
             },
+            j_cd_jevil = {
+                name = "Jevil",
+                text = {
+                    {
+                        "{C:red}Randomiza{} {C:blue}Fichas{},{C:red}Mult{} and {X:mult, C:white}XMult{} ",
+                        "de {C:attention}Outros Curingas{} após jogar uma mão",
+
+                    }
+                }
+            },
         },
         Back = {
             b_cd_metadeck = {
@@ -276,6 +286,7 @@ return {
                 k_cd_zero_reversed = "ZERO_REVERSO: SEM_ENERGIA_SUFICIENTE",
                 k_cd_arcana_active = "O Arcano se revela...",
                 k_cd_uzumaki = "Denovo.",
+                k_cd_jevil = "Caos!"
 
             },
         },

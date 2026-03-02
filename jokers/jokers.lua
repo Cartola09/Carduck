@@ -1447,7 +1447,7 @@ SMODS.Joker {
             if triggered then
                 return {
                     play_sound('cd_CHAOSCHAOS', 1, 1)
-                    message = "Chaos!",
+                    message = localize('k_cd_jevil'),
                     colour = G.C.BLACK
                 }
             end

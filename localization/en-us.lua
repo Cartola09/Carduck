@@ -256,6 +256,16 @@ return {
                     }
                 }
             },
+            j_cd_jevil = {
+                name = "Jevil",
+                text = {
+                    {
+                        "{C:red}Randomize{} {C:blue}Chips{},{C:red}Mult{} and {X:mult, C:white}XMult{} ",
+                        "of {C:attention}Other Jokers{} after playing a hand",
+
+                    }
+                }
+            },
         },
         Back = {
             b_cd_metadeck = {
@@ -277,6 +287,7 @@ return {
                 k_cd_zero_reversed = "ZERO_REVERSO: SEM_ENERGIA_SUFICIENTE",
                 k_cd_arcana_active = "O Arcano se revela...",
                 k_cd_uzumaki = "Again.",
+                k_cd_jevil = "Chaos!"
             },
         },
 }
