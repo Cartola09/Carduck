@@ -255,6 +255,15 @@ return {
                     }
                 }
             },
+            j_cd_alchemy = {
+                name = "Curinga Alquímico",
+                text = {
+                    {
+                        "{C:attention}Cartas de aço{} tem os efeitos de {C:attention}Cartas de ouro{}",
+                        "{C:attention}Cartas de ouro{} tem os efeitos de {C:attention}Cartas de ferro{}"
+                    }
+                }
+            },
             j_cd_jevil = {
                 name = "Jevil",
                 text = {

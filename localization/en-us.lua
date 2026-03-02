@@ -256,6 +256,15 @@ return {
                     }
                 }
             },
+            j_cd_alchemy = {
+                name = "Alchemy Joker",
+                text = {
+                    {
+                        "{C:attention}Steel Cards{} have {C:attention}Gold card{} effects,",
+                        "{C:attention}Gold Cards{} have {C:attention}Steel card{} effects"
+                    }
+                }
+            },
             j_cd_jevil = {
                 name = "Jevil",
                 text = {
