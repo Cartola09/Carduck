@@ -294,12 +294,14 @@ return {
     },
     misc = {
             challenge_names = {
-                c_cd_fade_out = "Desvanecer",
-                c_cd_legendary_printer = "Impressora Lendária",
+                c_cd_fade_out = "Fade out",
+                c_cd_legendary_printer = "Legendary Printer",
+                c_cd_total_chaos = "Total Chaos",
+                c_cd_do_you_like = "Do you like hurting other people?"
             },
             dictionary = {
-                k_cd_zero_reversed = "ZERO_REVERSO: SEM_ENERGIA_SUFICIENTE",
-                k_cd_arcana_active = "O Arcano se revela...",
+                k_cd_zero_reversed = "ZERO_REVERSED: NOT_ENOUGH_ENERGY",
+                k_cd_arcana_active = "The arcana reveals...",
                 k_cd_uzumaki = "Again.",
                 k_cd_jevil = "Chaos!"
             },

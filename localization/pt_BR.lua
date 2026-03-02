@@ -295,6 +295,8 @@ return {
             challenge_names = {
                 c_cd_fade_out = "Desvanecer",
                 c_cd_legendary_printer = "Impressora Lendária",
+                c_cd_total_chaos = "Caos Total",
+                c_cd_do_you_like = "Você gosta de machucar os outros?"
             },
             dictionary = {
                 k_cd_zero_reversed = "ZERO_REVERSO: SEM_ENERGIA_SUFICIENTE",

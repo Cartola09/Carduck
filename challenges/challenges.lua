@@ -48,3 +48,36 @@ SMODS.Challenge {
         { id = 'c_soul' }
     }
 }
+
+SMODS.Challenge {
+    key = "total_chaos",
+    atlas = "total_chaos",
+    jokers = {
+        { id = 'j_cd_jevil', eternal = true },
+        { id = 'j_joker', eternal = true },
+        { id = 'j_joker', eternal = true },
+        { id = 'j_joker', eternal = true },
+        { id = 'j_joker', eternal = true }
+
+    },
+    consumeables = {
+        { id = 'c_ectoplasm' }
+    }
+}
+
+SMODS.Challenge {
+    key = "do_you_like",
+    atlas = "do_you_like",
+    jokers = {
+        { id = 'j_cd_hotline', eternal = true, edition = 'negative' },
+        { id = 'j_cd_arcana', eternal = true },
+        { id = 'j_cartomancer', eternal = true }
+
+    },
+    consumeables = {
+        { id = 'c_fool' }
+    },
+    vouchers = {
+        { id = 'v_crystal_ball'}
+    }
+}
