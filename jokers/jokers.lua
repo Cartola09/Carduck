@@ -229,6 +229,11 @@ SMODS.Sound({
     path = "barkdog.ogg"
 })
 
+SMODS.Sound({
+    key = "CHAOSCHAOS",
+    path = "CHAOSCHAOS.ogg"
+})
+
 
 SMODS.Joker{
     key = "callingcard",                                  --name used by the joker.    
