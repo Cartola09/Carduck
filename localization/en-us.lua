@@ -260,9 +260,7 @@ return {
                 name = "Jevil",
                 text = {
                     {
-                        "{C:red}Randomize{} {C:blue}Chips{},{C:red}Mult{} and {X:mult,C:white}XMult{} ",
-                        "of {C:attention}Other Jokers{} after playing a hand",
-
+                        "{C:attention}Every joker{} gives a random {X:mult,C:white}XMult{} "
                     }
                 }
             },
