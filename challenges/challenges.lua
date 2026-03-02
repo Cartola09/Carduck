@@ -70,7 +70,7 @@ SMODS.Challenge {
     atlas = "do_you_like",
     jokers = {
         { id = 'j_cd_hotline', eternal = true, edition = 'negative' },
-        { id = 'j_cd_arcana', eternal = true },
+        { id = 'j_cd_arcanajoker', eternal = true },
         { id = 'j_cartomancer', eternal = true }
     },
     vouchers = {
