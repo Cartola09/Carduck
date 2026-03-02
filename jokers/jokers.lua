@@ -1418,7 +1418,7 @@ SMODS.Joker {
     unlocked = true,
     discovered = true,
 
-    calculate = function(self, card, context)
+calculate = function(self, card, context)
         if context.after and not context.blueprint then
             local triggered = false
             
@@ -1426,36 +1426,39 @@ SMODS.Joker {
                 local j = G.jokers.cards[i]
                 
                 if j ~= card then
-                    
-                    if j.ability and j.ability.mult then
+                    local j_triggered = false
+
+                    if j.ability and j.ability.mult and j.ability.mult ~= 0 then
                         j.ability.mult = math.floor(pseudorandom('jevil_m') * 51)
-                        triggered = true
+                        j_triggered = true
                     end
                     
-                    if j.ability and j.ability.chips then
+                    if j.ability and j.ability.chips and j.ability.chips ~= 0 then
                         j.ability.chips = math.floor(pseudorandom('jevil_c') * 201)
-                        triggered = true
+                        j_triggered = true
                     end
 
-                    if j.ability and j.ability.x_mult then
-                        j.ability.x_mult = math.floor(pseudorandom('jevil_x') * 31)
-                        triggered = true
+                    if j.ability and j.ability.x_mult and j.ability.x_mult > 1 then
+                        j.ability.x_mult = (pseudorandom('jevil_x') * 6)
+                        j_triggered = true
                     end
 
-                    if j.ability and j.ability.t_chips then
+                    if j.ability and j.ability.t_chips and j.ability.t_chips ~= 0 then
                         j.ability.t_chips = math.floor(pseudorandom('jevil_t') * 201)
-                        triggered = true
+                        j_triggered = true
                     end
                     
-                    if triggered then
+                    if j_triggered then
                         j:juice_up(0.3, 0.3)
+                        triggered = true
                     end
                 end
             end
             
             if triggered then
+                play_sound('cd_CHAOSCHAOS', 1, 1) 
+                
                 return {
-                    play_sound('cd_CHAOSCHAOS', 1, 1),
                     message = localize('k_cd_jevil'),
                     colour = G.C.BLACK
                 }
