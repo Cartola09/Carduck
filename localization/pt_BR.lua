@@ -259,7 +259,7 @@ return {
                 name = "Jevil",
                 text = {
                     {
-                        "{C:red}Randomiza{} {C:blue}Fichas{},{C:red}Mult{} and {X:mult, C:white}XMult{} ",
+                        "{C:red}Randomiza{} {C:blue}Fichas{},{C:red}Mult{} e {X:mult,C:white}XMult{} ",
                         "de {C:attention}Outros Curingas{} após jogar uma mão",
 
                     }
