@@ -213,6 +213,13 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "alchemy",
+    path = "j_alchemy.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
     key = "jevil",
     path = "j_jevil.png",
     px = 71,
@@ -1406,6 +1413,39 @@ calculate = function(self, card, context)
     end
 end
 }
+
+SMODS.Joker{
+    key = "alchemy",
+    pos = { x = 0, y = 0 },
+    rarity = 2,
+    cost = 6,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    atlas = 'alchemy',
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand then
+            if context.other_card.ability.name == 'Gold Card' then
+                return {
+                    x_mult = 1.5,
+                    card = card 
+                }
+            end
+        end
+
+        if context.end_of_round and context.cardarea == G.hand then
+            if context.other_card.ability.name == 'Steel Card' then
+                return {
+                    dollars = 3,
+                    card = card
+                }
+            end
+        end
+    end
+}
+
 
 SMODS.Joker {
     key = "jevil",
