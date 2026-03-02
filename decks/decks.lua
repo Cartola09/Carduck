@@ -66,6 +66,10 @@ SMODS.Back{
         G.E_MANAGER:add_event(Event({
             func = function()
                 G.GAME.dollars = 0
+                
+                local card1 = create_card('Joker', G.jokers, nil, nil, nil, nil, self.config.joker1, 'chemical')
+                card1:add_to_deck()
+                G.jokers:emplace(card1)
                 return true
             end
         }))
