@@ -260,7 +260,7 @@ return {
                 text = {
                     {
                         "{C:attention}Cartas de aço{} tem os efeitos de {C:attention}Cartas de ouro{}",
-                        "{C:attention}Cartas de ouro{} tem os efeitos de {C:attention}Cartas de ferro{}"
+                        "{C:attention}Cartas de ouro{} tem os efeitos de {C:attention}Cartas de aço{}"
                     }
                 }
             },
