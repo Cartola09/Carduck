@@ -1438,7 +1438,6 @@ SMODS.Joker {
                     end
                     
                     if triggered then
-                        
                         j:juice_up(0.3, 0.3)
                     end
                 end
@@ -1446,7 +1445,7 @@ SMODS.Joker {
             
             if triggered then
                 return {
-                    play_sound('cd_CHAOSCHAOS', 1, 1)
+                    play_sound('cd_CHAOSCHAOS', 1, 1),
                     message = localize('k_cd_jevil'),
                     colour = G.C.BLACK
                 }
