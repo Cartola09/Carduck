@@ -1441,6 +1441,11 @@ SMODS.Joker {
                         j.ability.x_mult = math.floor(pseudorandom('jevil_x') * 31)
                         triggered = true
                     end
+
+                    if j.ability and j.ability.t_chips then
+                        j.ability.t_chips = math.floor(pseudorandom('jevil_t') * 201)
+                        triggered = true
+                    end
                     
                     if triggered then
                         j:juice_up(0.3, 0.3)
