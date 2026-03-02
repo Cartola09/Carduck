@@ -212,6 +212,13 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "jevil",
+    path = "j_jevil.png",
+    px = 71,
+    py = 95
+})
+
 SMODS.Sound({
     key = "p5critical",
     path = "p5critical.ogg"
@@ -1395,6 +1402,59 @@ calculate = function(self, card, context)
 end
 }
 
+SMODS.Joker {
+    key = "jevil",
+    atlas = "jevil",
+    pos = { x = 0, y = 0 },
+    soul_pos = { x = 1, y = 0 }, 
+    rarity = 3,
+    cost = 10,
+    blueprint_compat = false,
+    unlocked = true,
+    discovered = true,
+
+    calculate = function(self, card, context)
+        if context.after and not context.blueprint then
+            local triggered = false
+            
+            for i = 1, #G.jokers.cards do
+                local j = G.jokers.cards[i]
+                
+                if j ~= card then
+                    
+                    if j.ability and j.ability.mult then
+                        j.ability.mult = math.floor(pseudorandom('jevil_m') * 51)
+                        triggered = true
+                    end
+                    
+                    if j.ability and j.ability.chips then
+                        j.ability.chips = math.floor(pseudorandom('jevil_c') * 201)
+                        triggered = true
+                    end
+
+                    if j.ability and j.ability.x_mult then
+                        j.ability.x_mult = math.floor(pseudorandom('jevil_x') * 31)
+                        triggered = true
+                    end
+                    
+                    if triggered then
+                        
+                        j:juice_up(0.3, 0.3)
+                    end
+                end
+            end
+            
+            if triggered then
+                return {
+                    play_sound('cd_CHAOSCHAOS', 1, 1)
+                    message = "Chaos!",
+                    colour = G.C.BLACK
+                }
+            end
+        end
+    end
+}
+
 
 -- (COLOCAR OUTROS CORINGAS ACIMA DESSE BLOCO) codigo p agir com outros coringas q destroem cartas (NÃO MEXER MT)
 local card_dissolve_ref = Card.start_dissolve
@@ -1445,7 +1505,7 @@ function Card.start_dissolve(self, dissolve_colours, shelf_live, item_type)
                                 hold = 0.8,
                                 major = card_to_upgrade
                             })
-                            play_sound("cd_p5critical", 1, 1)
+                            play_sound("cd_p5critical", 0.7, 1)
                             return true
                         end
                     }))
