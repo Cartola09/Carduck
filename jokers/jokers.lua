@@ -1424,6 +1424,14 @@ SMODS.Joker{
     unlocked = true,
     discovered = true,
     atlas = 'alchemy',
+    
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_steel
+        info_queue[#info_queue+1] = G.P_CENTERS.m_gold
+        
+        return { vars = {} }
+    end,
+
 
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand then
