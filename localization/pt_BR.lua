@@ -282,6 +282,13 @@ return {
                         "{C:attention}Sem cartas de realeza ao iniciar{}"
                     },
             },
+            b_cd_chemical = {
+                name = "Baralho da Alquimia",
+                text = {
+                        "Começa com {C:red}Curinga Alquímico{}.",
+                        "{C:attention}Nenhum dinheiro ao começar{}"
+                    },
+            },
         },
     },
     misc = {

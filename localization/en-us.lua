@@ -283,6 +283,13 @@ return {
                         "{C:attention}No face cards on start{}"
                     },
             },
+            b_cd_chemical = {
+                name = "Alchemy Deck",
+                text = {
+                        "Start with {C:red}Alchemy Joker{}.",
+                        "{C:attention}No money on start{}"
+                    },
+            },
         },
     },
     misc = {

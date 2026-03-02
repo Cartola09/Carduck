@@ -5,6 +5,13 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "chemical",
+    path = "b_alchemy_deck.png",
+    px = 71,
+    py = 95
+})
+
 SMODS.Back{
     key = "metadeck",
     pos = { x = 0, y = 0 },
@@ -43,4 +50,24 @@ apply = function(self)
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end
+}
+
+SMODS.Back{
+    key = "chemical",
+    pos = { x = 0, y = 0 },
+    atlas = "chemical",
+    unlocked = true,
+    discovered = true,
+    config = {
+        joker1 = "j_cd_alchemy"
+    },
+
+    apply = function(self)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                G.GAME.dollars = 0
+                return true
+            end
+        }))
+    end,
 }
