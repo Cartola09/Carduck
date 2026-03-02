@@ -1438,7 +1438,7 @@ calculate = function(self, card, context)
                         j_triggered = true
                     end
 
-                    if j.ability and j.ability.x_mult and j.ability.x_mult > 1 then
+                    if j.ability and j.ability.x_mult and j.ability.x_mult ~= 0 then
                         j.ability.x_mult = (pseudorandom('jevil_x') * 6)
                         j_triggered = true
                     end
