@@ -29,7 +29,7 @@ O que acontece quando você junta um **CARRO** e um **PATO**?\
 <sub>patos e carros (provavelmente) não inclusos</sub>\
 \
 CARDUCK é um mod que adiciona...\
-**NOVOS CORINGAS!**\
+**NOVOS CURINGAS!**\
 e\
 **NOVOS BARALHOS!**\
 incluindo **UM MONTE DE REFERÊNCIAS!**\
