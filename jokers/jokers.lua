@@ -1301,7 +1301,7 @@ SMODS.Joker {
     
     calculate = function(self, card, context)
         if context.end_of_round and not context.blueprint then
-            local enh_pool = {'m_bonus', 'm_mult', 'm_wild', 'm_glass', 'm_steel', 'm_stone', 'm_gold', 'm_lucky'}
+            local enh_pool = {'m_bonus', 'm_mult', 'm_wild', 'm_glass', 'm_lucky'}
             local hand_pool = {'Pair', 'Flush', 'Full House', 'Three of a Kind', 'Straight', 'Two Pair'}
 
             card.ability.extra.target_enhancement = pseudorandom_element(enh_pool, pseudoseed('hotline_enh'))
