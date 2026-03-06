@@ -1300,7 +1300,7 @@ SMODS.Joker {
     end,
     
     calculate = function(self, card, context)
-        if context.setting_blind and not context.blueprint then
+        if context.end_of_round and not context.blueprint then
             local enh_pool = {'m_bonus', 'm_mult', 'm_wild', 'm_glass', 'm_steel', 'm_stone', 'm_gold', 'm_lucky'}
             local hand_pool = {'Pair', 'Flush', 'Full House', 'Three of a Kind', 'Straight', 'Two Pair'}
 
