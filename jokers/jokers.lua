@@ -1493,7 +1493,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
             if context.setting_blind and not context.blueprint then
                 
-                if pseudorandom('gaster_self') < G.GAME.probabilities.normal / card.config.extra.odds then
+                if pseudorandom('gaster') < G.GAME.probabilities.normal / card.config.extra.odds then
                     card:juice_up(0.8, 0.5)
                     G.E_MANAGER:add_event(Event({
                         func = function()
