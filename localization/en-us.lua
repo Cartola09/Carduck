@@ -250,8 +250,8 @@ return {
                 name = "Uzumaki",
                 text = {
                     {
-                        "{C:red}Red seal{} cards that {C:attention}reactivated{},",
-                        "reactivate {C:attention}again{}",
+                        "{C:red}Red seal{} cards that {C:attention}retriggered{},",
+                        "retrigger {C:attention}again{}",
 
                     }
                 }
@@ -262,6 +262,16 @@ return {
                     {
                         "{C:attention}Steel Cards{} have {C:attention}Gold card{} effects,",
                         "{C:attention}Gold Cards{} have {C:attention}Steel card{} effects"
+                    }
+                }
+            },
+            j_cd_gaster = {
+                name = "W.D",
+                text = {
+                    {
+                        "{C:red}Destroys{} a random {C:attention}non-negative{} Joker,",
+                        "{C:attention}Creates{} a random {C:dark_edition}Negative{} Joker,",
+                        "{C:green}#1# in #2# chance{} of destroying itself"
                     }
                 }
             },

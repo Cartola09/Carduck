@@ -264,6 +264,16 @@ return {
                     }
                 }
             },
+            j_cd_gaster = {
+                name = "W.D",
+                text = {
+                    {
+                        "{C:red}Destrói{} um curinga aleatório {C:attention}não negativo{},",
+                        "{C:attention}Cria{} um curinga aleatório {C:dark_edition}Negativo{},",
+                        "{C:green}chance de #1# em #2#{} de se destruir"
+                    }
+                }
+            },
             j_cd_jevil = {
                 name = "Jevil",
                 text = {

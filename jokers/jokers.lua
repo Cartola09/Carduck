@@ -220,6 +220,13 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "gaster",
+    path = "j_gaster.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
     key = "jevil",
     path = "j_jevil.png",
     px = 71,
@@ -241,6 +248,10 @@ SMODS.Sound({
     path = "CHAOSCHAOS.ogg"
 })
 
+SMODS.Sound({
+    key = "gastervanish",
+    path = "gastervanish.ogg"
+})
 
 SMODS.Joker{
     key = "callingcard",                                  --name used by the joker.    
@@ -1411,6 +1422,15 @@ calculate = function(self, card, context)
             }
         end
     end
+    if context.repetition and context.cardarea == G.hand then
+        if context.other_card.seal == 'Red' then
+            return {
+                message = localize("k_cd_uzumaki"),
+                repetitions = card.ability.extra.repetitions,
+                card = card,
+            }
+        end
+    end
 end
 }
 
@@ -1454,6 +1474,77 @@ SMODS.Joker{
     end
 }
 
+SMODS.Joker {
+    key = "gaster",
+    atlas = "gaster", 
+    pos = { x = 0, y = 0 },
+    rarity = 3,
+    cost = 9,
+    unlocked = true,
+    discovered = true,
+    blueprint_compat = false, 
+    eternal_compat = false,
+    config = { extra = { odds = 4 } },
+    
+    loc_vars = function(self, info_queue, card)
+        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
+    end,
+
+    calculate = function(self, card, context)
+            if context.setting_blind and not context.blueprint then
+                
+                if pseudorandom('chaos_reaper_self') < G.GAME.probabilities.normal / card.config.extra.odds then
+                    card:juice_up(0.8, 0.5)
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            play_sound("cd_gastervanish", 1, 1)
+                            card:start_dissolve()
+                            return true
+                        end
+                    }))
+                end
+
+                local destructible_jokers = {}
+                for i = 1, #G.jokers.cards do
+                    if G.jokers.cards[i].edition == nil or not G.jokers.cards[i].edition.negative then
+                        table.insert(destructible_jokers, G.jokers.cards[i])
+                    end
+                end
+
+                if #destructible_jokers > 0 then
+                    local targeted_joker = pseudorandom_element(destructible_jokers, pseudoseed('reaper_target'))
+                    
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        delay = 0.4,
+                        func = function()
+                            targeted_joker:juice_up(0.8, 0.5)
+                            targeted_joker:start_dissolve()
+                            return true
+                        end
+                    }))
+                end
+
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.4,
+                    func = function()
+                        local _card = SMODS.add_card({
+                            set = 'Joker',
+                            area = G.jokers,
+                            key_append = 'gaster_gen',
+                            edition = 'e_negative' 
+                        })
+                        return true
+                    end
+                }))
+                
+                return {
+                    card = card,
+                }
+            end
+        end
+}
 
 SMODS.Joker {
     key = "jevil",
@@ -1564,7 +1655,7 @@ function Card.start_dissolve(self, dissolve_colours, shelf_live, item_type)
                                 hold = 0.8,
                                 major = card_to_upgrade
                             })
-                            play_sound("cd_p5critical", 0.7, 1)
+                            play_sound("cd_p5critical", 1, 1)
                             return true
                         end
                     }))
